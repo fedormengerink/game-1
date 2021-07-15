@@ -149,12 +149,11 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Hay, function (sprite, otherSpri
     Angry_sky_sheep.follow(Cave_man)
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
-    info.changeLifeBy(-1)
     otherSprite.destroy()
     if (Cave_man.y < otherSprite.y) {
-    	
+        info.changeScoreBy(3)
     } else {
-    	
+        info.changeLifeBy(-1)
     }
 })
 let Angry_sky_sheep: Sprite = null
