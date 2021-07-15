@@ -2,7 +2,9 @@
     "name": "game 1",
     "description": "",
     "dependencies": {
-        "device": "*"
+        "device": "*",
+        "darts": "*",
+        "animation": "*"
     },
     "files": [
         "main.blocks",
