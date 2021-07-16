@@ -162,22 +162,22 @@ let Magic: Sprite = null
 let Cave_man: Sprite = null
 scene.setBackgroundColor(9)
 Cave_man = sprites.create(img`
-    . . . . f f f f f f . . . . . . 
-    . . . . d a d d a d . . . . . . 
-    . . . . f d d d d f . . . . . . 
-    . . . . f f f f f f . . . . . . 
-    d d . . e e e e e e . . d d . . 
-    d d d d e e e e e e d d d d . . 
-    d d . . e e e e e e . . d d . . 
-    . . . . e e e e e e . . . . . . 
-    . . . . e e e e e e . . . . . . 
-    . . . . e e e e e e . . . . . . 
-    . . . . e e e e e e . . . . . . 
-    . . . . d d . . d d . . . . . . 
-    . . . . d d . . d d . . . . . . 
-    . . . . d d . . d d . . . . . . 
-    . d d d d d . . d d d d d . . . 
-    . d d d d d . . d d d d d . . . 
+    . . . . f f f f f . . . . . . . 
+    . . . . f f d d a . . . . . . . 
+    . . . . f d d f f . . . . . . . 
+    . . . e e e e e e . . . . . . . 
+    . . . e e d e e e . . . . . . . 
+    . . . e e d e e e . . . . . . . 
+    . . . e e d e e e . . . . . . . 
+    . . . e d d d e e . . . . . . . 
+    . . . e d d d e e . . . . . . . 
+    . . . e e e e e e . . . . . . . 
+    . . . d d . . d d . . . . . . . 
+    . . . d d . . d d . . . . . . . 
+    . . . d d . . d d . . . . . . . 
+    . . . d d . . d d . . . . . . . 
+    . . . d d d . d d d d . . . . . 
+    . . . d d d . d d d d . . . . . 
     `, SpriteKind.Player)
 controller.moveSprite(Cave_man, 100, 0)
 tiles.setTilemap(tilemap`level1`)
@@ -387,3 +387,48 @@ for (let value of tiles.getTilesByType(assets.tile`myTile6`)) {
         tiles.setTileAt(value, assets.tile`transparency16`)
     }
 }
+game.onUpdate(function () {
+    Cave_man.setImage(img`
+        . . . . f f f f f . . . . . . . 
+        . . . . f f d d a . . . . . . . 
+        . . . . f d d f f . . . . . . . 
+        . . . e e e e e e . . . . . . . 
+        . . . e e d e e e . . . . . . . 
+        . . . e e d e e e . . . . . . . 
+        . . . e e d e e e . . . . . . . 
+        . . . e d d d e e . . . . . . . 
+        . . . e d d d e e . . . . . . . 
+        . . . e e e e e e . . . . . . . 
+        . . . d d . . d d . . . . . . . 
+        . . . d d . . d d . . . . . . . 
+        . . . d d . . d d . . . . . . . 
+        . . . d d . . d d . . . . . . . 
+        . . . d d d . d d d d . . . . . 
+        . . . d d d . d d d d . . . . . 
+        `)
+    if (Cave_man.vx < 0) {
+        Cave_man.image.flipX()
+    }
+    if (Cave_man.vy < 0) {
+        Cave_man.setImage(img`
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . f f f f . . . . . . . 
+            . . . . . f f d a . . . . . . . 
+            . . . . . f d f f . . . . . . . 
+            . . . . . e e e e e . . . . . . 
+            . . . . . e e d e e . . . . . . 
+            . . . . . e e d e e . . . . . . 
+            . . . . . e e d e e . . . . . . 
+            . . . . . e d d d e . . . . . . 
+            . . . . . e d d d e . . . . . . 
+            . . . . d e e e e e d . . . . . 
+            . . . d d d . . d d d . . . . . 
+            . . d d . . . d d . . . . . . . 
+            . . d . . . . d . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            `)
+    } else {
+    	
+    }
+})
