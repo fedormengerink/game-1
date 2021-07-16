@@ -425,7 +425,7 @@ game.onUpdate(function () {
             . . d . . . . d . . . . . . . . 
             . . . . . . . . . . . . . . . . 
             `)
-    } else if (Cave_man.vx > 0) {
+    } else if (Cave_man.vy > 0) {
         Cave_man.setImage(img`
             . . . . . f f f f f . . . . . . 
             . . . . . f a d a f . . . . . . 
@@ -443,6 +443,25 @@ game.onUpdate(function () {
             . . . . d d . . . d d . . . . . 
             . . d d d d . . . d d d d . . . 
             . . d d d d . . . d d d d . . . 
+            `)
+    } else if (Cave_man.x % 2 == 0) {
+        Cave_man.setImage(img`
+            . . . . f f f f f . . . . . . . 
+            . . . . f f d d a . . . . . . . 
+            . . . . f d d f f . . . . . . . 
+            . . . e e e e e e . . . . . . . 
+            . . . e e d e e e . . . . . . . 
+            . . . e e d e e e . . . . . . . 
+            . . . e e d e e e . . . . . . . 
+            . . . e d d d e e . . . . . . . 
+            . . . e d d d e e . . . . . . . 
+            . . . e e e e e e . . . . . . . 
+            . . d d . . . . d d . . . . . . 
+            . . d d . . . . d d . . . . . . 
+            . . d d . . . . d d . . . . . . 
+            . . d d . . . . d d . . . . . . 
+            . . d d d . . . d d d d . . . . 
+            . . d d d . . . d d d d . . . . 
             `)
     } else {
     	
