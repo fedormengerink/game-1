@@ -150,25 +150,6 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Hay, function (sprite, otherSpri
     Angry_sky_sheep.follow(Cave_man)
 })
 function startLevel () {
-    Cave_man = sprites.create(img`
-        . . . . f f f f f . . . . . . . 
-        . . . . f f d d a . . . . . . . 
-        . . . . f d d f f . . . . . . . 
-        . . . e e e e e e . . . . . . . 
-        . . . e e d e e e . . . . . . . 
-        . . . e e d e e e . . . . . . . 
-        . . . e e d e e e . . . . . . . 
-        . . . e d d d e e . . . . . . . 
-        . . . e d d d e e . . . . . . . 
-        . . . e e e e e e . . . . . . . 
-        . . . d d . . d d . . . . . . . 
-        . . . d d . . d d . . . . . . . 
-        . . . d d . . d d . . . . . . . 
-        . . . d d . . d d . . . . . . . 
-        . . . d d d . d d d d . . . . . 
-        . . . d d d . d d d d . . . . . 
-        `, SpriteKind.Player)
-    controller.moveSprite(Cave_man, 100, 0)
     if (Current_level == 0) {
         tiles.setTilemap(tilemap`level1`)
     } else {
@@ -521,7 +502,26 @@ scene.setBackgroundImage(img`
     6666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666
     6666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666
     `)
-Current_level = 0
+Current_level = 1
+Cave_man = sprites.create(img`
+    . . . . f f f f f . . . . . . . 
+    . . . . f f d d a . . . . . . . 
+    . . . . f d d f f . . . . . . . 
+    . . . e e e e e e . . . . . . . 
+    . . . e e d e e e . . . . . . . 
+    . . . e e d e e e . . . . . . . 
+    . . . e e d e e e . . . . . . . 
+    . . . e d d d e e . . . . . . . 
+    . . . e d d d e e . . . . . . . 
+    . . . e e e e e e . . . . . . . 
+    . . . d d . . d d . . . . . . . 
+    . . . d d . . d d . . . . . . . 
+    . . . d d . . d d . . . . . . . 
+    . . . d d . . d d . . . . . . . 
+    . . . d d d . d d d d . . . . . 
+    . . . d d d . d d d d . . . . . 
+    `, SpriteKind.Player)
+controller.moveSprite(Cave_man, 100, 0)
 startLevel()
 game.onUpdate(function () {
     Cave_man.setImage(img`
