@@ -162,6 +162,15 @@ function startLevel () {
     Cave_man.ay = 350
     scene.cameraFollowSprite(Cave_man)
     info.setLife(5)
+    for (let value of sprites.allOfKind(SpriteKind.Enemy)) {
+        value.destroy()
+    }
+    for (let value of sprites.allOfKind(SpriteKind.Magic)) {
+        value.destroy()
+    }
+    for (let value of sprites.allOfKind(SpriteKind.Hay)) {
+        value.destroy()
+    }
     for (let value of tiles.getTilesByType(assets.tile`myTile6`)) {
         Magic = sprites.create(img`
             . . . . . . . . . . . . . . . . 
@@ -502,7 +511,7 @@ scene.setBackgroundImage(img`
     6666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666
     6666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666
     `)
-Current_level = 0
+Current_level = 1
 Cave_man = sprites.create(img`
     . . . . f f f f f . . . . . . . 
     . . . . f f d d a . . . . . . . 
