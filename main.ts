@@ -15,7 +15,8 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Magic, function (sprite, otherSp
     otherSprite.destroy()
 })
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile8`, function (sprite, location) {
-    game.over(true, effects.melt)
+    Current_level += 1
+    startLevel()
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Hay, function (sprite, otherSprite) {
     otherSprite.destroy()
@@ -168,7 +169,11 @@ function startLevel () {
         . . . d d d . d d d d . . . . . 
         `, SpriteKind.Player)
     controller.moveSprite(Cave_man, 100, 0)
-    tiles.setTilemap(tilemap`level1`)
+    if (Current_level == 0) {
+        tiles.setTilemap(tilemap`level1`)
+    } else {
+        tiles.setTilemap(tilemap`level2`)
+    }
     tiles.placeOnRandomTile(Cave_man, assets.tile`myTile9`)
     for (let value of tiles.getTilesByType(assets.tile`myTile9`)) {
         tiles.setTileAt(value, assets.tile`transparency16`)
@@ -392,6 +397,7 @@ let Hay: Sprite = null
 let Magic: Sprite = null
 let Angry_sky_sheep: Sprite = null
 let Cave_man: Sprite = null
+let Current_level = 0
 scene.setBackgroundColor(9)
 scene.setBackgroundImage(img`
     6666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666
@@ -515,6 +521,7 @@ scene.setBackgroundImage(img`
     6666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666
     6666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666
     `)
+Current_level = 0
 startLevel()
 game.onUpdate(function () {
     Cave_man.setImage(img`
